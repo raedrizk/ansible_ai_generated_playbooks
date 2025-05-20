@@ -1,14 +1,13 @@
 ---
-- name: Install and start httpd
-  hosts: web
+- name: fix this
+  hosts: all
+  become: true
   tasks:
-    - name: Install httpd
-      become: true
-      ansible.builtin.package:
-        name: httpd
-        state: present
-    - name: Start httpd
+    - name: install express package
+      community.general.npm:
+        name: express
+        path: /var/app/nodeapi
+    - name: restart node api
       ansible.builtin.service:
-        name: httpd
-        state: started
-      become: true
+        name: node-api.service
+        state: restarted
