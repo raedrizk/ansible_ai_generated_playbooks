@@ -1,13 +1,14 @@
 ---
-- name: Install missing package and restart service
-  hosts: all
-  become: true
+- name: Install and start httpd
+  hosts: web
   tasks:
-    - name: Install express package
-      community.general.npm:
-        name: express
-        path: /var/app/nodeapi
-    - name: restart node-api.service
+    - name: Install httpd
+      become: true
+      ansible.builtin.package:
+        name: httpd
+        state: present
+    - name: Start httpd
       ansible.builtin.service:
-        name: node-api.service
-        state: restarted
+        name: httpd
+        state: started
+      become: true
