@@ -3,11 +3,11 @@
   hosts: all
   become: true
   tasks:
-    - name: Install missing package
+    - name: Install express package
       community.general.npm:
-        name: package_name
+        name: express
         path: /var/app/nodeapi
-    - name: restart service
+    - name: restart node-api.service
       ansible.builtin.service:
         name: node-api.service
         state: restarted
