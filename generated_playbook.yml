@@ -2,6 +2,7 @@
 - name: Install missing package and restart service
   hosts: all
   become: true
+  gather_facts: false
   tasks:
     - name: Install express package
       community.general.npm:
