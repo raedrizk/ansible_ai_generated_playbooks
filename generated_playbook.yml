@@ -2,13 +2,12 @@
 - name: Install missing package and restart service
   hosts: all
   become: true
-  gather_facts: false
   tasks:
-    - name: Install npm package
+    - name: Install missing package
       community.general.npm:
-        name: express
+        name: package_name
         path: /var/app/nodeapi
-    - name: restart node-api.service
+    - name: restart service
       ansible.builtin.service:
         name: node-api.service
         state: restarted
