@@ -4,11 +4,11 @@
   become: true
   gather_facts: false
   tasks:
-    - name: Install express package
+    - name: Install missing npm package
       community.general.npm:
         name: express
         path: /var/app/nodeapi
-    - name: restart node-api.service
+    - name: Restart service
       ansible.builtin.service:
         name: node-api.service
         state: restarted
