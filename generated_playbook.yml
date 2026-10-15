@@ -1,10 +1,10 @@
 ---
-- name: Install missing packages
+- name: Install missing package and restart service
   hosts: all
   become: true
   gather_facts: false
   tasks:
-    - name: Install missing npm package
+    - name: install express package
       community.general.npm:
         name: express
         path: /var/app/nodeapi
