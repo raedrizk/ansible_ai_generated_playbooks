@@ -2,9 +2,8 @@
 - name: Install missing package and restart service
   hosts: all
   become: true
-  gather_facts: false
   tasks:
-    - name: Install express package
+    - name: Use community.general.npm to install package
       community.general.npm:
         name: express
         path: /var/app/nodeapi
