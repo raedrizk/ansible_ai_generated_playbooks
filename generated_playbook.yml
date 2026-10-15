@@ -3,7 +3,7 @@
   hosts: all
   become: true
   tasks:
-    - name: Install missing npm package
+    - name: Install express package
       community.general.npm:
         name: express
         path: /var/app/nodeapi
