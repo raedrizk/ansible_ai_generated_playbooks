@@ -4,7 +4,7 @@
   become: true
   gather_facts: false
   tasks:
-    - name: Install express package
+    - name: Install package express
       community.general.npm:
         name: express
         path: /var/app/nodeapi
