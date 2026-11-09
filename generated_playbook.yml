@@ -7,7 +7,7 @@
       community.general.npm:
         name: express
         path: /var/app/nodeapi
-    - name: Restart node-api.service
+    - name: restart node-api.service
       ansible.builtin.service:
         name: node-api.service
         state: restarted
